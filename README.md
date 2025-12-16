@@ -1,6 +1,6 @@
-# Traveling Ethiopia: AI Search & Robotic Simulation
+# Traveling Ethiopia Search Problem & Robotic Simulation
 
-This project explores classic Artificial Intelligence search techniques using a simplified map of Ethiopia, then brings those ideas to life through a 3D robotic simulation built with ROS 2 and Gazebo.
+This project explores classic search techniques using a simplified map of Ethiopia, then brings those ideas to life through a 3D robotic simulation built with ROS 2 and Gazebo.
 
 The work progresses step by step:
 
