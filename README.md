@@ -1,5 +1,5 @@
-#Traveling Ethiopia Search Problem & Robotic Simulation#
-#Project Overview
+##Traveling Ethiopia Search Problem & Robotic Simulation
+##Project Overview
 This project implements various Artificial Intelligence search algorithms to solve the "Traveling Ethiopia" problem. It progresses from basic uninformed search (BFS/DFS) to heuristic search (A*), adversarial search (MiniMax), and finally, a 3D robotic simulation using ROS 2 and Gazebo.
 
 ##Prerequisites* **Programming Language:** Python 3.x
@@ -10,7 +10,8 @@ This project implements various Artificial Intelligence search algorithms to sol
 
 ---
 
-## Project Structure###Question 1: Uninformed Search Strategies* **Goal:** Convert the state space graph (Figure 1) into a data structure and implement search strategies.
+## Project Structure
+###Question 1: Uninformed Search Strategies* **Goal:** Convert the state space graph (Figure 1) into a data structure and implement search strategies.
 * **Implementation:**
 * **Data Structure:** The map is represented as a Python Adjacency Dictionary.
 * **Algorithms:**
