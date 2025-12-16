@@ -1,7 +1,8 @@
 ##Traveling Ethiopia Search Problem & Robotic Simulation
+
 ##Project Overview
 This project implements various Artificial Intelligence search algorithms to solve the "Traveling Ethiopia" problem. It progresses from basic uninformed search (BFS/DFS) to heuristic search (A*), adversarial search (MiniMax), and finally, a 3D robotic simulation using ROS 2 and Gazebo.
-
+---
 ##Prerequisites* **Programming Language:** Python 3.x
 * **Key Libraries:** `collections` (deque), `heapq`, `math`
 * **OS:** Ubuntu 24.04 (Noble Numbat)
@@ -55,7 +56,7 @@ This project implements various Artificial Intelligence search algorithms to sol
 
 ---
 
-##🤖 Question 5: ROS 2 & Gazebo SimulationThis section involves simulating a robot in a 3D environment representing the "Relaxed State Space Graph" (Figure 5).
+## Question 5: ROS 2 & Gazebo SimulationThis section involves simulating a robot in a 3D environment representing the "Relaxed State Space Graph" (Figure 5).
 
 ###1. Package Setup (Ubuntu 24.04 / ROS 2 Jazzy)Because this system uses **Ubuntu 24.04**, the simulation runs on **ROS 2 Jazzy** and **Gazebo Harmonic**.
 
