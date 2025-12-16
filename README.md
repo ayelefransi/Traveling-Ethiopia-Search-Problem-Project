@@ -174,4 +174,3 @@ The robot will:
 
 This project ties together theoretical AI search algorithms and practical robotics. You start with abstract graphs and end with a robot navigating a simulated version of Ethiopia, using the same planning logic under the hood. It’s a full pipeline from algorithms to motion.
 
-If you want to extend it, good next steps would be swapping BFS for A*, adding obstacle avoidance, or integrating SLAM.
