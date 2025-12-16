@@ -1,5 +1,4 @@
 ##Traveling Ethiopia Search Problem & Robotic Simulation
-
 ##Project Overview
 This project implements various Artificial Intelligence search algorithms to solve the "Traveling Ethiopia" problem. It progresses from basic uninformed search (BFS/DFS) to heuristic search (A*), adversarial search (MiniMax), and finally, a 3D robotic simulation using ROS 2 and Gazebo.
 ---
