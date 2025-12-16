@@ -1,96 +1,177 @@
-##Traveling Ethiopia Search Problem & Robotic Simulation
-##Project Overview
-This project implements various Artificial Intelligence search algorithms to solve the "Traveling Ethiopia" problem. It progresses from basic uninformed search (BFS/DFS) to heuristic search (A*), adversarial search (MiniMax), and finally, a 3D robotic simulation using ROS 2 and Gazebo.
----
-##Prerequisites* **Programming Language:** Python 3.x
-* **Key Libraries:** `collections` (deque), `heapq`, `math`
-* **OS:** Ubuntu 24.04 (Noble Numbat)
-* **Robotics Middleware:** ROS 2 Jazzy Jalisco
-* **Simulator:** Gazebo Harmonic (gz-sim)
+# Traveling Ethiopia: AI Search & Robotic Simulation
+
+This project explores classic Artificial Intelligence search techniques using a simplified map of Ethiopia, then brings those ideas to life through a 3D robotic simulation built with ROS 2 and Gazebo.
+
+The work progresses step by step:
+
+* Uninformed search (BFS, DFS)
+* Cost-based search (UCS)
+* Heuristic search (A*)
+* Adversarial search (MiniMax)
+* A ROS 2 robot that navigates the environment using search-based planning
 
 ---
 
-## Project Structure
-###Question 1: Uninformed Search Strategies* **Goal:** Convert the state space graph (Figure 1) into a data structure and implement search strategies.
-* **Implementation:**
-* **Data Structure:** The map is represented as a Python Adjacency Dictionary.
-* **Algorithms:**
-* **Breadth-First Search (BFS):** Uses a FIFO Queue to find the shortest path in terms of hops.
-* **Depth-First Search (DFS):** Uses a LIFO Stack to explore paths deeply before backtracking.
+## Prerequisites
 
+**Programming Language**
 
+* Python 3.x
 
+**Core Python Libraries**
 
-* **Usage:** Run the Jupyter notebook cell for Q1.
+* `collections` (deque)
+* `heapq`
+* `math`
 
-###Question 2: Uniform Cost Search (UCS)* **Goal:** Navigate using backward costs (distance/price) from Figure 2.
-* **Implementation:**
-* **Data Structure:** Weighted Adjacency Dictionary.
-* **Algorithm:** Uses a `PriorityQueue` (heapq) to explore the path with the lowest cumulative cost g(n).
-* **Multi-Goal Search:** A customized UCS loop that visits a dynamic list of cities (e.g., "Axum", "Lalibela", "Bale") by constantly finding the nearest unvisited goal to preserve the local optimum.
+**Operating System**
 
+* Ubuntu 24.04 (Noble Numbat)
 
-* **Usage:** Run the Jupyter notebook cell for Q2.
+**Robotics Stack**
 
-###Question 3: A* Search (Heuristic Search)* **Goal:** Find the optimal path from "Addis Ababa" to "Moyale" using both heuristics and path costs (Figure 3).
-* **Implementation:**
-* **Logic:** f(n) = g(n) + h(n)
-* g(n): Backward cost (distance between cities).
-* h(n): Heuristic value (estimated straight-line distance to goal).
-
-
-* **Result:** This is the most efficient search, prioritizing paths that are mathematically closer to the destination.
-
-
-* **Usage:** Run the Jupyter notebook cell for Q3.
-
-###Question 4: Adversarial Search (MiniMax)* **Goal:** An agent competes against an adversary to find the best quality coffee (Figure 4).
-* **Implementation:**
-* **Agent (Maximizer):** Tries to maximize utility (coffee quality).
-* **Adversary (Minimizer):** Tries to minimize the agent's utility.
-* **Algorithm:** Recursive MiniMax function traversing the game tree to Level 3 terminals.
-
-
-* **Usage:** Run the Jupyter notebook cell for Q4.
+* ROS 2 Jazzy Jalisco
+* Gazebo Harmonic (`gz-sim`)
 
 ---
 
-## Question 5: ROS 2 & Gazebo SimulationThis section involves simulating a robot in a 3D environment representing the "Relaxed State Space Graph" (Figure 5).
+## Project Structure & Tasks
 
-###1. Package Setup (Ubuntu 24.04 / ROS 2 Jazzy)Because this system uses **Ubuntu 24.04**, the simulation runs on **ROS 2 Jazzy** and **Gazebo Harmonic**.
+### Question 1: Uninformed Search (BFS & DFS)
 
-**File Locations:**
+**Goal**
+Model the Ethiopian city map as a state-space graph and explore it using uninformed search strategies.
 
-* `~/ros2_ws/src/traveling_ethiopia/urdf/ethiopia_bot.urdf`: Defines the blue 3-wheeled differential drive robot using the `gz-sim-diff-drive` plugin.
-* `~/ros2_ws/src/traveling_ethiopia/worlds/ethiopia.world`: Defines the simulation environment with cities mapped to Cartesian coordinates.
-* `~/ros2_ws/src/traveling_ethiopia/launch/simulation.launch.py`: Python launch script bridging ROS 2 and Gazebo.
-* `~/ros2_ws/src/traveling_ethiopia/traveling_ethiopia/navigator.py`: The control node containing the BFS logic and P-Controller to drive the robot.
+**Implementation**
 
-###2. How to Run the Simulation**Step 1: Build the Workspace**
-Open a terminal and run:
+* The map is stored as a Python adjacency dictionary.
+* **Breadth-First Search (BFS)**
+  Uses a FIFO queue to find the shortest path in terms of number of hops.
+* **Depth-First Search (DFS)**
+  Uses a LIFO stack to explore paths deeply before backtracking.
+
+**How to Run**
+
+* Execute the Jupyter Notebook cell for **Q1**.
+
+---
+
+### Question 2: Uniform Cost Search (UCS)
+
+**Goal**
+Find optimal paths using cumulative travel cost (distance or price).
+
+**Implementation**
+
+* The graph is represented as a weighted adjacency dictionary.
+* **Uniform Cost Search** uses a priority queue (`heapq`) ordered by total cost
+  [
+  g(n) = \text{cost from start to node } n
+  ]
+* **Multi-goal UCS**
+  A custom loop dynamically visits multiple target cities (e.g. Axum, Lalibela, Bale) by repeatedly selecting the nearest unvisited goal, maintaining a locally optimal solution.
+
+**How to Run**
+
+* Execute the Jupyter Notebook cell for **Q2**.
+
+---
+
+### Question 3: A* Search (Heuristic Search)
+
+**Goal**
+Find the optimal route from **Addis Ababa** to **Moyale** using both actual cost and heuristic guidance.
+
+**Implementation**
+
+* Uses the A* evaluation function:
+  [
+  f(n) = g(n) + h(n)
+  ]
+
+  * ( g(n) ): actual cost traveled so far
+  * ( h(n) ): heuristic estimate (straight-line distance to the goal)
+* This approach significantly reduces unnecessary exploration and is the most efficient search used in the project.
+
+**How to Run**
+
+* Execute the Jupyter Notebook cell for **Q3**.
+
+---
+
+### Question 4: Adversarial Search (MiniMax)
+
+**Goal**
+Model a competitive scenario where an agent selects the best-quality coffee while an adversary attempts to reduce the agent’s payoff.
+
+**Implementation**
+
+* **Agent (Maximizer):** maximizes coffee quality (utility)
+* **Adversary (Minimizer):** minimizes the agent’s utility
+* A recursive **MiniMax** algorithm explores the game tree up to depth 3 and evaluates terminal states.
+
+**How to Run**
+
+* Execute the Jupyter Notebook cell for **Q4**.
+
+---
+
+##  Question 5: ROS 2 & Gazebo Robot Simulation
+
+This final part connects search algorithms to a physical-style robot navigating a 3D environment.
+
+### 1. Package Setup (Ubuntu 24.04 / ROS 2 Jazzy)
+
+**Key Files**
+
+* `urdf/ethiopia_bot.urdf`
+  Defines a blue, three-wheeled differential-drive robot using the `gz-sim-diff-drive` plugin.
+* `worlds/ethiopia.world`
+  Gazebo world where cities are mapped to Cartesian coordinates.
+* `launch/simulation.launch.py`
+  Launch file that starts Gazebo and bridges it with ROS 2.
+* `traveling_ethiopia/navigator.py`
+  ROS 2 node implementing BFS-based path planning and a simple P-controller for motion.
+
+---
+
+### 2. Running the Simulation
+
+#### Step 1: Build the Workspace
 
 ```bash
 cd ~/ros2_ws
 colcon build --symlink-install
 source install/setup.bash
-
 ```
 
-**Step 2: Launch the Environment**
-This opens the Gazebo simulator with the robot spawned at Addis Ababa (0,0).
+#### Step 2: Launch the Simulation
+
+This starts Gazebo and spawns the robot at Addis Ababa `(0, 0)`.
 
 ```bash
 ros2 launch traveling_ethiopia simulation.launch.py
-
 ```
 
-**Step 3: Run the Navigator**
-Open a **new** terminal window and run:
+#### Step 3: Run the Navigator Node
+
+Open a new terminal:
 
 ```bash
 source ~/ros2_ws/install/setup.bash
 ros2 run traveling_ethiopia navigator
-
 ```
 
-The robot will generate a path (BFS) and autonomously drive to the destination defined in the `execute_mission` function.
+The robot will:
+
+* Generate a path using BFS
+* Follow that path autonomously
+* Drive to the destination specified in the `execute_mission` function
+
+---
+
+## Summary
+
+This project ties together theoretical AI search algorithms and practical robotics. You start with abstract graphs and end with a robot navigating a simulated version of Ethiopia, using the same planning logic under the hood. It’s a full pipeline from algorithms to motion.
+
+If you want to extend it, good next steps would be swapping BFS for A*, adding obstacle avoidance, or integrating SLAM.
