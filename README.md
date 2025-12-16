@@ -26,7 +26,7 @@ The work progresses step by step:
 
 **Operating System**
 
-* Ubuntu 24.04 (Noble Numbat)
+* Ubuntu 24.04 (Noble Numbat) --for task 5
 
 **Robotics Stack**
 
