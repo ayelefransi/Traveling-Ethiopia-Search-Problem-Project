@@ -1,0 +1,1743 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <world name="default">
+    <!-- Physics -->
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    
+    <!-- Plugins -->
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"></plugin>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"></plugin>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"></plugin>
+
+    <!-- Lighting - Ethiopian Sun -->
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>1.0 0.95 0.8 1</diffuse>
+      <specular>0.3 0.3 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <!-- Ground Plane - Ethiopian Highlands Terrain -->
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.65 0.50 0.35 1</ambient>
+            <diffuse>0.70 0.55 0.38 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- City Markers -->
+
+    <model name="Gambela">
+      <pose>-10.0 0.0 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+            <emissive>0.3 0.0 0.0 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Dembi_Dollo">
+      <pose>-8.0 2.0 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+            <emissive>0.3 0.0 0.0 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Gore">
+      <pose>-7.0 0.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+            <emissive>0.3 0.0 0.0 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Gimbi">
+      <pose>-6.0 2.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+            <emissive>0.3 0.0 0.0 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Tepi">
+      <pose>-6.5 -0.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+            <emissive>0.3 0.0 0.0 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Mezan_Teferi">
+      <pose>-6.0 -1.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+            <emissive>0.3 0.0 0.0 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Nekemte">
+      <pose>-4.0 2.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient>
+            <diffuse>0 1 0 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient>
+            <diffuse>0 1 0 1</diffuse>
+            <emissive>0.0 0.3 0.0 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Bedelle">
+      <pose>-4.0 1.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient>
+            <diffuse>0 1 0 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient>
+            <diffuse>0 1 0 1</diffuse>
+            <emissive>0.0 0.3 0.0 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Jimma">
+      <pose>-3.5 0.0 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.36 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.096</radius><length>0.72</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient>
+            <diffuse>0 1 0 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.9999999999999999 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.18</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient>
+            <diffuse>0 1 0 1</diffuse>
+            <emissive>0.0 0.3 0.0 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.3299999999999998 0 0 0</pose>
+          <geometry>
+            <box><size>0.96 0.36 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Bonga">
+      <pose>-4.5 -0.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient>
+            <diffuse>0 1 0 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient>
+            <diffuse>0 1 0 1</diffuse>
+            <emissive>0.0 0.3 0.0 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Dawro">
+      <pose>-3.5 -1.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient>
+            <diffuse>0 1 0 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient>
+            <diffuse>0 1 0 1</diffuse>
+            <emissive>0.0 0.3 0.0 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Wolait_Sodo">
+      <pose>-2.5 -1.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient>
+            <diffuse>0 1 0 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient>
+            <diffuse>0 1 0 1</diffuse>
+            <emissive>0.0 0.3 0.0 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Hossana">
+      <pose>-2.0 -0.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient>
+            <diffuse>0 1 0 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>0 1 0 1</ambient>
+            <diffuse>0 1 0 1</diffuse>
+            <emissive>0.0 0.3 0.0 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Ambo">
+      <pose>-1.5 2.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>0 0 1 1</ambient>
+            <diffuse>0 0 1 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>0 0 1 1</ambient>
+            <diffuse>0 0 1 1</diffuse>
+            <emissive>0.0 0.0 0.3 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Wolkite">
+      <pose>-1.0 0.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>0 0 1 1</ambient>
+            <diffuse>0 0 1 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>0 0 1 1</ambient>
+            <diffuse>0 0 1 1</diffuse>
+            <emissive>0.0 0.0 0.3 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Worabe">
+      <pose>-0.5 -0.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>0 0 1 1</ambient>
+            <diffuse>0 0 1 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>0 0 1 1</ambient>
+            <diffuse>0 0 1 1</diffuse>
+            <emissive>0.0 0.0 0.3 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Hawassa">
+      <pose>-1.0 -1.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.36 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.096</radius><length>0.72</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>0 0 1 1</ambient>
+            <diffuse>0 0 1 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.9999999999999999 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.18</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>0 0 1 1</ambient>
+            <diffuse>0 0 1 1</diffuse>
+            <emissive>0.0 0.0 0.3 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.3299999999999998 0 0 0</pose>
+          <geometry>
+            <box><size>0.96 0.36 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Dilla">
+      <pose>-0.5 -2.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>0 0 1 1</ambient>
+            <diffuse>0 0 1 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>0 0 1 1</ambient>
+            <diffuse>0 0 1 1</diffuse>
+            <emissive>0.0 0.0 0.3 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Addis_Ababa">
+      <pose>0.5 2.0 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.44999999999999996 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.12</radius><length>0.8999999999999999</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0.84 0 1</ambient>
+            <diffuse>1 0.84 0 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 1.225 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.22499999999999998</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>1 0.84 0 1</ambient>
+            <diffuse>1 0.84 0 1</diffuse>
+            <emissive>0.3 0.252 0.0 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.6 0 0 0</pose>
+          <geometry>
+            <box><size>1.2000000000000002 0.44999999999999996 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Debra_Birhan">
+      <pose>1.5 3.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>1 1 0 1</ambient>
+            <diffuse>1 1 0 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>1 1 0 1</ambient>
+            <diffuse>1 1 0 1</diffuse>
+            <emissive>0.3 0.3 0.0 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Buta_Jirra">
+      <pose>0.0 0.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>1 1 0 1</ambient>
+            <diffuse>1 1 0 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>1 1 0 1</ambient>
+            <diffuse>1 1 0 1</diffuse>
+            <emissive>0.3 0.3 0.0 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Adama">
+      <pose>2.0 1.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.33 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08800000000000001</radius><length>0.66</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>1 1 0 1</ambient>
+            <diffuse>1 1 0 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.925 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.165</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>1 1 0 1</ambient>
+            <diffuse>1 1 0 1</diffuse>
+            <emissive>0.3 0.3 0.0 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.24 0 0 0</pose>
+          <geometry>
+            <box><size>0.8800000000000001 0.33 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Batu">
+      <pose>1.0 0.0 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>1 1 0 1</ambient>
+            <diffuse>1 1 0 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>1 1 0 1</ambient>
+            <diffuse>1 1 0 1</diffuse>
+            <emissive>0.3 0.3 0.0 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Shashemene">
+      <pose>1.5 -0.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>1 1 0 1</ambient>
+            <diffuse>1 1 0 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>1 1 0 1</ambient>
+            <diffuse>1 1 0 1</diffuse>
+            <emissive>0.3 0.3 0.0 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Matahara">
+      <pose>3.5 1.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0 1 1</ambient>
+            <diffuse>1 0 1 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>1 0 1 1</ambient>
+            <diffuse>1 0 1 1</diffuse>
+            <emissive>0.3 0.0 0.3 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Assella">
+      <pose>2.5 0.0 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0 1 1</ambient>
+            <diffuse>1 0 1 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>1 0 1 1</ambient>
+            <diffuse>1 0 1 1</diffuse>
+            <emissive>0.3 0.0 0.3 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Assasa">
+      <pose>3.0 -0.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0 1 1</ambient>
+            <diffuse>1 0 1 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>1 0 1 1</ambient>
+            <diffuse>1 0 1 1</diffuse>
+            <emissive>0.3 0.0 0.3 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Dodola">
+      <pose>2.5 -1.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0 1 1</ambient>
+            <diffuse>1 0 1 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>1 0 1 1</ambient>
+            <diffuse>1 0 1 1</diffuse>
+            <emissive>0.3 0.0 0.3 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Bale">
+      <pose>3.5 -1.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>1 0 1 1</ambient>
+            <diffuse>1 0 1 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>1 0 1 1</ambient>
+            <diffuse>1 0 1 1</diffuse>
+            <emissive>0.3 0.0 0.3 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Awash">
+      <pose>5.0 2.0 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>0 1 1 1</ambient>
+            <diffuse>0 1 1 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>0 1 1 1</ambient>
+            <diffuse>0 1 1 1</diffuse>
+            <emissive>0.0 0.3 0.3 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Chiro">
+      <pose>6.0 2.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>0 1 1 1</ambient>
+            <diffuse>0 1 1 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>0 1 1 1</ambient>
+            <diffuse>0 1 1 1</diffuse>
+            <emissive>0.0 0.3 0.3 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Dire_Dawa">
+      <pose>7.0 2.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.36 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.096</radius><length>0.72</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>0 1 1 1</ambient>
+            <diffuse>0 1 1 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.9999999999999999 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.18</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>0 1 1 1</ambient>
+            <diffuse>0 1 1 1</diffuse>
+            <emissive>0.0 0.3 0.3 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.3299999999999998 0 0 0</pose>
+          <geometry>
+            <box><size>0.96 0.36 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Harar">
+      <pose>8.0 2.0 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.39 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.10400000000000001</radius><length>0.78</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>0 1 1 1</ambient>
+            <diffuse>0 1 1 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 1.0750000000000002 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.195</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>0 1 1 1</ambient>
+            <diffuse>0 1 1 1</diffuse>
+            <emissive>0.0 0.3 0.3 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.4200000000000002 0 0 0</pose>
+          <geometry>
+            <box><size>1.04 0.39 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Babile">
+      <pose>9.0 1.0 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>0 1 1 1</ambient>
+            <diffuse>0 1 1 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>0 1 1 1</ambient>
+            <diffuse>0 1 1 1</diffuse>
+            <emissive>0.0 0.3 0.3 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Jijiga">
+      <pose>10.0 1.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.33 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08800000000000001</radius><length>0.66</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>0 1 1 1</ambient>
+            <diffuse>0 1 1 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.925 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.165</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>0 1 1 1</ambient>
+            <diffuse>0 1 1 1</diffuse>
+            <emissive>0.0 0.3 0.3 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.24 0 0 0</pose>
+          <geometry>
+            <box><size>0.8800000000000001 0.33 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Dega_Habur">
+      <pose>10.0 0.0 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+            <emissive>0.21 0.21 0.21 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Goba">
+      <pose>5.5 -1.0 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+            <emissive>0.21 0.21 0.21 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Sof_Oumer">
+      <pose>6.5 -1.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+            <emissive>0.21 0.21 0.21 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Kebri_Dehar">
+      <pose>10.0 -1.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+            <emissive>0.21 0.21 0.21 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="Gode">
+      <pose>9.0 -2.5 0 0 0 0</pose>
+      <static>true</static>
+      <link name="link">
+        <!-- Base pillar -->
+        <visual name="pillar">
+          <pose>0 0 0.3 0 0 0</pose>
+          <geometry>
+            <cylinder><radius>0.08</radius><length>0.6</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+          </material>
+        </visual>
+        <!-- City marker sphere -->
+        <visual name="marker">
+          <pose>0 0 0.85 0 0 0</pose>
+          <geometry>
+            <sphere><radius>0.15</radius></sphere>
+          </geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+            <emissive>0.21 0.21 0.21 1</emissive>
+          </material>
+        </visual>
+        <!-- Name plate -->
+        <visual name="nameplate">
+          <pose>0 0 1.15 0 0 0</pose>
+          <geometry>
+            <box><size>0.8 0.3 0.05</size></box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+
+  </world>
+</sdf>
+
